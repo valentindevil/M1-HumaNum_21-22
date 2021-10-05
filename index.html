@@ -323,11 +323,14 @@ var dataPhoto, dataForm, dataFacet=[], dataDoublons={}
                     .attr('src',function(d) { 
                         //merci à https://davidwalsh.name/query-string-javascript
                         // https://developers.google.com/web/updates/2016/01/urlsearchparams?hl=en
-                        let url = new URL(d['Votre photo']);
-                        let urlParam = new URLSearchParams(url.search);
-                        let id = urlParam.get('id');
-                        //merci à https://stackoverflow.com/questions/50664868/get-pictures-from-google-drive-folder-with-javascript-to-my-website
-                        let urlTof = "https://drive.google.com/uc?id="+id+"&export=download";                        
+		    	let urlTof = "https://samszo.univ-paris8.fr/ChaoticumPapillonae/";
+		    	if(d['Votre photo']){				
+				let url = new URL(d['Votre photo']);
+				let urlParam = new URLSearchParams(url.search);
+				let id = urlParam.get('id');
+				//merci à https://stackoverflow.com/questions/50664868/get-pictures-from-google-drive-folder-with-javascript-to-my-website
+				urlTof = "https://drive.google.com/uc?id="+id+"&export=download";                        
+			}
                         return urlTof; 
                         });
             /*ATTENTION problème quand les images ne sont pas à la même taille
